@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Corporatify Input Page</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class = "container">
+    <a href="input.html">
+      <h1 class="corporatify-title">Corporatify</h1>
+    </a>
+    <h2 class = "input-title">Enter your word or phrase</h2>
+    <!-- Input box, takes in the user's input -->
+    <input type="text" id="user-input" placeholder="Type something..." class="input-box" />
+    <br />
+    <button onclick="generateCorporateBS()" class="generate-button">Generate</button>
+    <!-- Output box -->
+    <p id="output"></p>
+    <!-- Save to favorites button -->
+    <button class="favorites-button">Save phrase to favorites</button>
+    <!-- History button -->
+    <button class="history-button">History</button>
+  </div>
+  <script src="main.js"></script>
+</body>
+</html>

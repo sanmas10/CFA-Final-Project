@@ -1,0 +1,128 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: sans-serif;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+}
+
+/* Main Page */
+.title {
+    color: royalblue;
+    font-weight: bold;
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+.slogan {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+}
+
+.start-button {
+    background-color: #1a73e8;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.start-button:hover {
+    background-color: rgb(31, 75, 208);
+    transform: translateY(-2px);
+}
+
+/* Input Page */
+.corporatify-title {
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 24px;
+    font-weight: bold;
+    color: #1a73e8;
+    text-align: center;
+}
+
+.input-title {
+    font-size: 24px;
+    font-weight: lighter;
+    color: #1a73e8;
+    text-align: center;
+    margin-top: -200px;
+}
+
+.input-box {
+    margin-top: 0px;
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+}
+
+.generate-button {
+   background-color: #1a73e8;
+   color: white;
+   font-size: 16px;
+   padding: 12px 24px;
+   border: none;
+   border-radius: 8px;
+   cursor: pointer;
+   margin-top: 20px;
+   transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.generate-button:hover {
+  background-color: #1558b0;
+  transform: translateY(-2px);
+}
+
+.favorites-button {
+    position: absolute;
+    bottom: 20px;
+    right: 130px;
+    padding: 10px 16px;
+    font-size: 14px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.favorites-button:hover {
+    transform: translateY(-2px);
+    background-color: rgb(34, 34, 34);
+}
+
+.history-button {
+    position: absolute;
+    bottom: 20px;
+    right: 50px;
+    padding: 10px 16px;
+    font-size: 14px;
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.history-button:hover {
+    transform: translateY(-2px);
+    background-color: rgb(34, 34, 34);
+}
