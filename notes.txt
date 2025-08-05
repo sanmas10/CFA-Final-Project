@@ -1,0 +1,6 @@
+1. You have your choice of logos. I updated the megaphone one, plus added a new one.
+2. I put an alegri picture at the bottom. I think it's hilarious, but of course, you do not need to use it, at all. 
+3. Please put images in an images folder
+4. Images must be optimized to reduce their file size. Use an online image optimizer.
+5. The name of the site or a logo containing the name should go on every page.
+6. Use alt attributes for images
