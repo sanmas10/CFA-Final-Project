@@ -34,6 +34,9 @@ body {
     margin-top: 50px;
     box-shadow: 0 2px 6px rgba(247, 163, 18, 0.5); 
     transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
 .start-button:hover {
@@ -236,6 +239,9 @@ body {
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
 .favorites-button:hover {
@@ -253,6 +259,9 @@ body {
     border-radius: 20px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
 }
 
 .history-button:hover {
@@ -289,3 +298,46 @@ body {
         gap: 10px;
     }
 }
+
+/* Favorites Page */
+.favorites-title {
+    font-family: 'Lexend', sans-serif;
+    font-size: 24px;
+    font-weight: lighter;
+    color: #027576;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.back-button {
+    font-family: 'Lexend', sans-serif;
+    background-color: #f7a312;
+    color: white;
+    padding: 10px 16px;
+    font-size: 14px;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.back-button:hover {
+    transform: translateY(-2px);
+    background-color: #027576;
+}
+
+/* History Page */
+.history-title {
+    font-family: 'Lexend', sans-serif;
+    font-size: 24px;
+    font-weight: lighter;
+    color: #027576;
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
