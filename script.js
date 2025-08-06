@@ -153,3 +153,86 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 });
+
+// History Page
+const History = {
+    STORAGE_KEY: 'translationHistory',
+
+    save(entry) {
+        const history = History.load();
+        history.unshift(entry); // add to top
+        localStorage.setItem(History.STORAGE_KEY, JSON.stringify(history.slice(0, 50))); // keep max 50
+    },
+
+    load() {
+        const data = localStorage.getItem(History.STORAGE_KEY);
+        return data ? JSON.parse(data) : [];
+    }
+};
+
+// Put into translateToCorporate to save history
+async function translateToCorporate() {
+    const inputText = Elements.input().value.trim();
+    const outputElement = Elements.output();
+
+    if (!inputText) {
+        showError(outputElement, 'Please enter some text to translate');
+        return;
+    }
+
+    setLoading(true);
+    showStatus(outputElement, 'Generating corporate buzzwords...');
+
+    try {
+        const buzzwordPhrase = await fetchCorporateBuzzwords();
+
+        if (!buzzwordPhrase) {
+            throw new Error('Failed to generate corporate buzzwords');
+        }
+
+        showStatus(outputElement, 'Translating to corporate speak...');
+
+        const corporateText = await transformWithGemini(inputText, buzzwordPhrase);
+
+        showResult(outputElement, corporateText);
+
+        // Save to history
+        History.save({
+            original: inputText,
+            translated: corporateText,
+            timestamp: new Date().toISOString()
+        });
+
+    } catch (error) {
+        console.error('Translation error:', error);
+        showError(outputElement, `Translation failed: ${error.message}`);
+    }
+}
+
+// Display the history
+document.addEventListener('DOMContentLoaded', () => {
+  const historyContainer = document.getElementById('history-list');
+  
+  if (historyContainer) {
+    const history = History.load();
+
+    if (history.length === 0) {
+      historyContainer.innerHTML = '<div class="empty-history">No translations yet.</div>';
+      return;
+    }
+    
+    history.forEach(entry => {
+      const div = document.createElement('div');
+      div.className = 'history-entry';
+      // This is where
+      div.innerHTML = `
+        <div class="history-timestamp">${new Date(entry.timestamp).toLocaleString()}</div>
+        <div class="history-original"><strong>Original:</strong> ${entry.original}</div>
+        <div class="history-translated"><strong>Translated:</strong> ${entry.translated}</div>
+        <hr>
+      `;
+      historyContainer.appendChild(div);
+    });
+  }
+});
+

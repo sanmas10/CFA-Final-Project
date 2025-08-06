@@ -46,10 +46,12 @@ body {
 
 /* Input Page */
 .logo-top {
-  width: 200px;
-  height: auto;
-  display: block;
-  margin: 0px auto 10px auto;
+    width: 120px;
+    height: auto;
+    display: block;
+    margin: 0px auto 10px auto;
+    object-fit: contain;
+    aspect-ratio: 1 / 1;
 }
 
 /* .img-top {
@@ -220,11 +222,11 @@ body {
     font-family: 'Lexend', sans-serif;
 }
 
-/* Bottom buttons container */
-.bottom-buttons {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
+/* Fav buttons container */
+.top-buttons {
+    position: absolute;
+    top: 205px;
+    left: 15px;
     display: flex;
     gap: 10px;
 }
@@ -323,6 +325,9 @@ body {
     text-decoration: none;
     display: inline-block;
     text-align: center;
+    position: fixed;
+    left: 20px;
+    bottom: 20px;
 }
 
 .back-button:hover {
