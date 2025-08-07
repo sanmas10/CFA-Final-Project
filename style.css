@@ -46,12 +46,10 @@ body {
 
 /* Input Page */
 .logo-top {
-    width: 120px;
-    height: auto;
-    display: block;
-    margin: 0px auto 10px auto;
-    object-fit: contain;
-    aspect-ratio: 1 / 1;
+  width: 200px;
+  height: auto;
+  display: block;
+  margin: 40px auto 10px auto;
 }
 
 /* .img-top {
