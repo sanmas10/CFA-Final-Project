@@ -12,10 +12,8 @@ async function deleteTranslationById(id) {
     try {
         // Convert the id string from the request into a MongoDB ObjectId
         const documentId = new ObjectId(id);
-        
         // Use the .deleteOne() method to remove the matching document
         const result = await collection.deleteOne({ _id: documentId });
-        
         console.log("Deletion result:", result);
         return result;
     } catch (e) {

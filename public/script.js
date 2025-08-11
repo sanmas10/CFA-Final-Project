@@ -7,7 +7,9 @@ const Elements = {
     input: () => document.getElementById('inputText'),
     output: () => document.getElementById('outputText'),
     translateBtn: () => document.getElementById('translateBtn'),
-    historyList: () => document.getElementById('history-list') // new
+    saveBtn: () => document.getElementById('saveBtn'), // new
+    historyList: () => document.getElementById('history-list'), // new
+    favoritesList: () => document.getElementById('favorites-list')
 };
 
 // Translator
@@ -65,7 +67,7 @@ async function loadHistory() {
             return;
         }
 
-        // Render each history item in reverse order with a delete button
+        // Render each history item in reverse order to see the most recent translations + delete button
         history.reverse().forEach(item => {
             const div = document.createElement('div');
             div.className = 'history-item';
@@ -74,7 +76,10 @@ async function loadHistory() {
                     <p><strong>Original:</strong> ${item.original}</p>
                     <p><strong>Jargon:</strong> ${item.jargon}</p>
                 </div>
-                <button class="delete-btn" data-id="${item._id}">Delete</button>
+                <div class="history-actions">
+                    <button class="save-btn" data-original="${item.original}" data-jargon="${item.jargon}">Save</button>
+                    <button class="delete-btn" data-id="${item._id}">Delete</button>
+                </div>
             `;
             historyList.appendChild(div);
         });
@@ -102,7 +107,71 @@ async function deleteHistoryItem(id) {
     }
 }
 
+// Save/favorite phrases using localStorage
+function savePhrase(originalText, jargonText) {
+    if (!jargonText || jargonText.includes('failed')) {
+        alert('No valid phrase to save.');
+        return;
+    }
+
+    let favorites = JSON.parse(localStorage.getItem('corporatePhrases') || '[]');
+
+    // The duplicate check
+    if (favorites.some(phrase => phrase.text === jargonText)) {
+        alert('This phrase is already in your favorites!');
+        return;
+    }
+    
+    const newFavorite = {
+        id: Date.now(),
+        original: originalText,
+        text: jargonText,
+        timestamp: new Date().toLocaleString()
+    };
+    
+    favorites.unshift(newFavorite);
+    localStorage.setItem('corporatePhrases', JSON.stringify(favorites));
+    alert('Phrase saved to your favorites!');
+}
+
+// Load and display saved/favorite phrases
+function displaySavedPhrases() {
+    const listElement = Elements.favoritesList();
+    if (!listElement) return;
+
+    let favorites = JSON.parse(localStorage.getItem('corporatePhrases') || '[]');
+    listElement.innerHTML = '';
+
+    if (favorites.length === 0) {
+        listElement.innerHTML = '<p class="text-muted">No saved phrases yet.</p>';
+        return;
+    }
+    
+    favorites.forEach(item => {
+        const div = document.createElement('div');
+        div.className = 'history-item';
+        div.innerHTML = `
+            <div class="history-content">
+                <p><strong>Original:</strong> ${item.original}</p>
+                <p><strong>Jargon:</strong> ${item.text}</p>
+            </div>
+            <div class="history-actions">
+                <button class="delete-favorite-btn" data-id="${item.id}">Delete</button>
+            </div>
+        `;
+        listElement.appendChild(div);
+    });
+}
+
+async function deletePhrase(id) {
+    let favorites = JSON.parse(localStorage.getItem('corporatePhrases') || '[]');
+    favorites = favorites.filter(item => item.id != id);
+    localStorage.setItem('corporatePhrases', JSON.stringify(favorites));
+    displaySavedPhrases(); // Refresh the list
+}
+
 // Helper functions
+
 function setLoading(isLoading) {
     const translateBtn = Elements.translateBtn();
     
@@ -121,6 +190,10 @@ function showStatus(element, message) {
 
 function showResult(element, text) {
     element.innerHTML = `<div class="text-success">${text}</div>`;
+    const saveBtn = Elements.saveBtn();
+    if (saveBtn) {
+        saveBtn.style.display = 'inline-block';
+    }
 }
 
 function showError(element, message) {
@@ -147,7 +220,7 @@ function copyToClipboard() {
 // Initialize event listeners based on the current page
 document.addEventListener('DOMContentLoaded', function() {
     
-    // If were on the main input page
+    // Main input page
     const translateBtn = Elements.translateBtn();
     if (translateBtn) {
         translateBtn.addEventListener('click', translateToCorporate);
@@ -158,20 +231,43 @@ document.addEventListener('DOMContentLoaded', function() {
                 translateToCorporate();
             }
         });
+
+        // Set up the save button that appears after translation
+        Elements.saveBtn()?.addEventListener('click', () => {
+            const originalText = Elements.input().value;
+            const jargonText = Elements.output().innerText;
+            savePhrase(originalText, jargonText);
+        });
     }
 
-    // If were on the history page
+    // History page
     const historyList = Elements.historyList();
     if (historyList) {
-        loadHistory(); // Load the history immediately
+        loadHistory(); 
 
-        // Add a single event listener to the list to handle all delete button clicks
         historyList.addEventListener('click', function(event) {
-            if (event.target && event.target.classList.contains('delete-btn')) {
-                const id = event.target.getAttribute('data-id');
-                if (id) {
-                    deleteHistoryItem(id);
-                }
+            const target = event.target;
+            if (target?.classList.contains('delete-btn')) {
+                deleteHistoryItem(target.getAttribute('data-id'));
+            }
+            if (target?.classList.contains('save-btn')) {
+                const original = target.getAttribute('data-original');
+                const jargon = target.getAttribute('data-jargon');
+                savePhrase(original, jargon);
+                target.disabled = true;
+                target.innerText = 'Saved';
+            }
+        });
+    }
+
+    // Favorites page
+    const favoritesList = Elements.favoritesList();
+    if (favoritesList) {
+        displaySavedPhrases();
+
+        favoritesList.addEventListener('click', function(event) {
+            if (event.target?.classList.contains('delete-favorite-btn')) {
+                deletePhrase(event.target.getAttribute('data-id'));
             }
         });
     }

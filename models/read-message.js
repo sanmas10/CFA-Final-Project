@@ -8,10 +8,8 @@ async function getAllTranslations() {
     
     // Try catch for error handling
     try {
-        // Use the .find() method with an empty object {} to get all documents
-        // and .toArray() to convert the results into a JavaScript array
+        // Get all documents and convert the results into a JavaScript array
         const results = await collection.find({}).toArray();
-        
         console.log("Successfully fetched all translations.");
         return results;
     } catch (e) {

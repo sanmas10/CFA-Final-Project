@@ -46,21 +46,13 @@ body {
 
 /* Input Page */
 .logo-top {
-  width: 200px;
+  width: 120px;
   height: auto;
   aspect-ratio: 1 / 1;
   object-fit: contain;
   display: block;
   margin: 0px auto 10px auto;
 }
-
-
-/* .img-top {
-  width: 200px;
-  height: auto;
-  display: block;
-  margin: 40px auto 10px auto;
-} */
 
 .input-title {
     font-family: 'Lexend', sans-serif;
@@ -230,12 +222,13 @@ body {
 
 .top-buttons {
     position: absolute;
-    top: 285px;
+    top: 210px;
     left: 15px;
     display: flex;
     gap: 10px;
 }
 
+/* The "Favorites" button */
 .favorites-button {
     font-family: 'Lexend', sans-serif;
     background-color: #f7a312;
@@ -256,6 +249,28 @@ body {
     background-color: #027576;
 }
 
+/* The "Save to Favorites" button */
+.save-btn {
+  position: absolute;
+  bottom: 16px;
+  right: 150px;
+  background: #f7a312;
+  border: none;
+  color: white;
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-family: 'Lexend', sans-serif;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.save-btn:hover {
+  background-color: #027576;
+  transform: translateY(-2px);
+}
+
+/* The "History" button */
 .history-button {
     font-family: 'Lexend', sans-serif;
     background-color: #f7a312;
