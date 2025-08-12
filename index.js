@@ -36,7 +36,7 @@ app.post('/api/gemini', async (req, res) => {
             Rules:
             // - Keep the original meaning intact
             // - Make it sound naturally corporate/business-like
-            // - Integrate the buzzword phrase smoothly (don't just append it)
+            // - Integrate the buzzword phrase smoothly (don't just append it, don't capitalize the first letter of each buzzword unless it is the first word)
             // - Return ONLY the rewritten phrase, nothing else
             // - No explanations or additional text
             

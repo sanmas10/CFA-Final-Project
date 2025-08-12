@@ -1,31 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Favorites – Corporatify</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Corporatify History Page</title>
+	<link rel="stylesheet" href="style.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet" />
+	<link href="https://fonts.googleapis.com/css2?family=Lexend:wght@400;700&display=swap" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap Button Icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
+
 <body>
-  <div class="container">
-    <a href="input.html">
-      <img src="./images/history_icon.png" alt="Corporatify Logo" class="logo-top" />
-    </a>
+	<!-- Navigation Bar on Top of Page -->
+	<header class="top-nav">
+		<div class="nav-logo">Corporatify</div>
+		<nav class="nav-links">
+			<a href="input.html" class="nav-btn translate-btn"><i class="bi bi-chat-dots"></i> Translator</a>
+			<a href="favorites.html" class="nav-btn favorites-btn"><i class="bi bi-star"></i> Favorites</a>
+			<a href="history.html" class="nav-btn history-btn current"><i class="bi bi-clock-history"></i> History</a>
+		</nav>
+	</header>
+	<div class="container">
+		<img src="./images/history_icon.png" alt="Corporatify Logo" class="logo-top" />
+		<h2 class="history-title">History</h2>
 
-    <h2 class="history-title">History</h2>
+		<div id="history-list" class="history-list">
+			<!-- In script.js -->
+		</div>
 
-    <div id="history-list" class="history-list">
-      <!-- In script.js -->
-    </div>
+	</div>
+	<script src="script.js"></script>
 
-    <!-- Bottom buttons -->
-    <div class="bottom-buttons">
-      <a href="input.html" class="back-button">Go back</a>
-    </div>
-    
-  </div>
-
-  <script src="script.js"></script>
+	<footer>
+		<p>© 2025 Corporatify</p>
+	</footer>
 </body>
+
 </html>

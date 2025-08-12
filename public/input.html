@@ -1,86 +1,82 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Corporatify Input Page</title>
-
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Button icons -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>Corporatify Input Page</title>
+	<link rel="stylesheet" href="style.css" />
+	<link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<!-- Bootstrap Button Icons -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
 </head>
+
 <body>
-  <div class="container">
-    <div class="logo-wrapper">
-      <!-- <a href="index.html">
-        <img src="img.png" alt="Corporate Icon" class="vector-icon" />
-      </a> -->
-      <a href="index.html">
-        <img src="images/corporatify_icon.png" alt="Corporatify Logo" class="logo-top" />
-      </a>
-    </div>
-    <h2 class="input-title">Enter your word or phrase</h2>
-    
-    <!-- Top buttons -->
-    <div class="top-buttons">
-      <a href="favorites.html" class="favorites-button">Favorites</a>
-      <a href="history.html" class="history-button">History</a>
-    </div>
+	<!-- Navigation Bar on Top of Page -->
+	<header class="top-nav">
+		<div class="nav-logo">Corporatify</div>
+		<nav class="nav-links">
+			<a href="input.html" class="nav-btn translate-btn current"><i class="bi bi-chat-dots"></i> Translator</a>
+			<a href="favorites.html" class="nav-btn favorites-btn"><i class="bi bi-star"></i> Favorites</a>
+			<a href="history.html" class="nav-btn history-btn"><i class="bi bi-clock-history"></i> History</a>
+		</nav>
+	</header>
+	<div class="container">
+		<img src="images/corporatify_icon.png" alt="Corporatify Logo" class="logo-top" />
+		<h2 class="input-title">Enter your word or phrase</h2>
 
-    <!-- Translator Container -->
-    <div class="translator-container">
-      <div class="language-bar">
-        <div class="language-label">Plain English</div>
-        <div class="language-label">Corporate Speak</div>
-      </div>
-      
-      <div class="text-areas">
-        <div class="input-section">
-          <textarea 
-            class="text-input" 
-            id="inputText" 
-            placeholder="Your boss is gonna love this!"
-            maxlength="5000"></textarea>
-          <div class="char-count" id="charCount">0 / 5000</div>
-        </div>
-        
-      <div class="output-section">
-        <div class="output-area" id="outputText">
-          <div style="color: #a0aec0; font-style: italic;">
-            Sophisticated dialogue will appear here...
-          </div>
-        </div>
-        <!-- Save and Copy buttons -->
-        <div class="output-actions">
-          <button class="copy-btn" onclick="copyToClipboard()" title="Copy">
-            <i class="bi bi-clipboard"></i>
-          </button>
-          <button id="saveBtn" class="save-btn" title="Save to Favorites">
-            <i class="bi bi-heart"></i>
-          </button>
-        </div>
-      </div>
+		<!-- Translator Container -->
+		<div class="translator-container">
+			<div class="language-bar">
+				<div class="language-label">Plain English</div>
+				<div class="feedback-message" id="feedbackMessage"></div>
+				<div class="language-label">Corporate Speak</div>
+			</div>
 
-      
-    </div>
-    <div class="action-bar">
-      <button class="btn-translate" id="translateBtn">
-        Translate
-      </button>
-    </div>
-  </div>
-  
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="script.js"></script>
-  
-  <script>
-    document.getElementById('inputText').addEventListener('input', function() {
-      const count = this.value.length;
-      document.getElementById('charCount').textContent = `${count} / 5000`;
-    });
-  </script>
+			<div class="text-areas">
+				<div class="input-section">
+					<textarea class="text-input" id="inputText" placeholder="Your boss is gonna love this!" maxlength="5000"></textarea>
+					<div class="char-count" id="charCount">0 / 5000</div>
+				</div>
+
+				<div class="output-section">
+					<div class="output-area" id="outputText">
+						<div style="color: #a0aec0; font-style: italic;">
+							Sophisticated dialogue will appear here...
+						</div>
+					</div>
+					<!-- Save and Copy Buttons -->
+					<div class="output-actions">
+						<button class="copy-btn" onclick="copyToClipboard()" title="Copy">
+							<i class="bi bi-clipboard"></i> Copy
+						</button>
+
+						<button id="saveBtn" class="save-btn" title="Save to Favorites">
+							<i class="bi bi-heart"></i> Save
+						</button>
+					</div>
+				</div>
+			</div>
+			<div class="action-bar">
+				<button class="btn-translate" id="translateBtn">
+					Translate
+				</button>
+			</div>
+		</div>
+
+		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+		<script src="script.js"></script>
+
+		<script>
+			document.getElementById('inputText').addEventListener('input', function() {
+				const count = this.value.length;
+				document.getElementById('charCount').textContent = `${count} / 5000`;
+			});
+		</script>
+		<footer>
+			<p>© 2025 Corporatify</p>
+		</footer>
 </body>
-</html> 
+
+</html>
