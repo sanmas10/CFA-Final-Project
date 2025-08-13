@@ -71,14 +71,14 @@ async function loadHistory() {
 			return;
 		}
 
-		// Render each history item in reverse order to see the most recent translations + delete button
+		// Render each history item in reverse order to see the most recent translations + delete button as bubble pairs
 		history.reverse().forEach(item => {
 			const div = document.createElement('div');
-			div.className = 'history-item';
+			div.className = 'history-bubble-row';
 			div.innerHTML = `
-                <div class="history-content">
-                    <p><strong>Original:</strong> ${item.original}</p>
-                    <p><strong>Jargon:</strong> ${item.jargon}</p>
+                <div class="bubble-pair">
+                    <div class="history-bubble-in">${item.original}</div>
+                    <div class="history-bubble-out">${item.jargon}</div>
                 </div>
                 <div class="history-actions">
                     <button class="history-save-btn" data-original="${item.original}" data-jargon="${item.jargon}" title="Save">

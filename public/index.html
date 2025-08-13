@@ -15,7 +15,12 @@
 
 <body>
 	<header class="top-nav">
-		<div class="nav-logo">Corporatify</div>
+		<a href="index.html" class="nav-logo-link">
+			<div class="nav-logo">
+				<img src="images/corporatify_text.png" alt="Corporatify Logo" class="logo-img" style="height: 32px; width: auto;">
+			</div>
+		</a>
+		<!-- The navigation links on the top right -->
 		<nav class="nav-links">
 			<a href="input.html" class="nav-btn translate-btn"><i class="bi bi-chat-dots"></i> Translator</a>
 			<a href="favorites.html" class="nav-btn favorites-btn"><i class="bi bi-star"></i> Favorites</a>
@@ -24,49 +29,63 @@
 	</header>
 
 	<div class="container">
-		<img src="images/Corporatify.png" alt="Corporatify Logo" class="logo" />
-		<!-- Button to link to input page -->
-		<a href="input.html" class="start-button">Try it out!</a>
-
-		<h2 id="home-feature"></h2>
-		<div class="bubbles">
-			<!-- Row 1 -->
-			<div class="bubble-row">
-				<div class="bubble-in">I’m running late!</div>
-				<div class="bubble-out">I anticipate a slight delay in my arrival…</div>
+		<!-- Flex row containing logo on the left and text/button on the right -->
+		<div class="logo-text-row">
+			<!-- Left side logo image -->
+			<div class="logo-column">
+				<!-- Main logo -->
+				<img src="images/corporatify_main.png" alt="Corporatify logo" class="logo-large">
 			</div>
-
-			<!-- Row 2 -->
-			<div class="bubble-row">
-				<div class="bubble-in">This is a bad idea.</div>
-				<div class="bubble-out">This is unfortunately not a viable strategy…</div>
-			</div>
-
-			<!-- Row 3 -->
-			<div class="bubble-row">
-				<div class="bubble-in">I’m busy.</div>
-				<div class="bubble-out">I’m bandwidth-constrained at the moment.</div>
-			</div>
-
-			<!-- Row 4 -->
-			<div class="bubble-row">
-				<div class="bubble-in">You messed up.</div>
-				<div class="bubble-out">You conveniently maximized ineffective opportunities.</div>
-			</div>
-
-			<!-- Row 5 -->
-			<div class="bubble-row">
-				<div class="bubble-in">I’m tired!</div>
-				<div class="bubble-out">I’m experiencing a professionally fostered sense of fatigue…</div>
-			</div>
-
-			<!-- Row 6 -->
-			<div class="bubble-row">
-				<div class="bubble-in">I don't know.</div>
-				<div class="bubble-out">I’m experiencing a professionally fostered sense of fatigue…</div>
-			</div>
+		<!-- Right side: title and button -->
+		<div class="text-column">
+			<!-- Main heading for the page -->
+			<h1 class="main-title">Corporate Speech Translator</h1>
+			<p class="subtitle">Translate everyday language into executive brilliance.</p>
+			<a href="input.html" class="start-button">Get started!</a>
+		</div>
 		</div>
 	</div>
+		<!-- Bubble examples on bottom -->
+		<div class="bubbles-background">
+			<div class="container">
+			<h2 id="home-feature"></h2>
+				<div class="bubbles">
+					<!-- Row 1 -->
+					
+						<div class="bubble-in">I’m running late!</div>
+						<div class="bubble-out">I anticipate a slight delay in my arrival…</div>
+					
+
+					<!-- Row 2 -->
+			
+						<div class="bubble-in">This is a bad idea.</div>
+						<div class="bubble-out">This is unfortunately not a viable strategy…</div>
+
+
+					<!-- Row 3 -->
+
+						<div class="bubble-in">I’m busy.</div>
+						<div class="bubble-out">I’m bandwidth-constrained at the moment.</div>
+
+
+					<!-- Row 4 -->
+
+						<div class="bubble-in">You messed up.</div>
+						<div class="bubble-out">You conveniently maximized ineffective opportunities.</div>
+		
+
+					<!-- Row 5 -->
+						<div class="bubble-in">I’m tired!</div>
+						<div class="bubble-out">I’m experiencing a professionally fostered sense of fatigue…</div>
+
+					<!-- Row 6 -->
+
+						<div class="bubble-in">I don't know.</div>
+						<div class="bubble-out">I’m experiencing a professionally fostered sense of fatigue…</div>
+
+				</div>
+			</div>
+		</div>
 
 	<script src="script.js"></script>
 	<footer>

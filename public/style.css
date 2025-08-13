@@ -18,17 +18,41 @@ body {
 	text-align: center;
 	max-width: 900px;
 	margin: 0 auto;
-	padding: 40px 20px;
-	position: relative;
-	min-height: 100vh;
+	padding: 0px 20px;
 }
 
 /* Main Page */
-.logo {
-	width: 320px;
+
+/* Container Row for Logo + Text/Button */
+.logo-text-row {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	gap: 48px;
+	flex-wrap: wrap;
+	margin: 40px auto 32px;
+	padding: 0 20px;
+}
+
+/* Logo Image Sizing */
+.logo-column .logo-large {
+	width: clamp(220px, 30vw, 360px);
 	height: auto;
 	display: block;
-	margin: 40px auto 10px auto;
+}
+
+/* Text Column Alignment */
+.text-column {
+	text-align: left;
+}
+
+/* Main Heading Styling */
+.main-title {
+	font-family: 'Lexend', sans-serif;
+	font-weight: 700;
+	line-height: 1.2;
+	margin: 0 0 10px 0;
+	color: #0a0a0a;
 }
 
 .start-button {
@@ -53,18 +77,26 @@ body {
 	transform: translateY(-2px);
 }
 
-/* Speech bubbles */
+/* Speech Bubbles */
 .bubbles {
 	margin: 40px auto;
-	display: grid;
-	grid-template-columns: repeat(2, minmax(260px, 1fr));
-	gap: 50px 50px;
-	/* row gap, column gap */
+	display: flex;
+	flex-wrap: wrap;
 	max-width: 900px;
 	/* justify-items: stretch; */
-	justify-items: center;
+	justify-content: space-between;
 	align-items: flex-start;
+	gap: 10px;
 }
+
+.bubbles-background {
+    background-color: #f8f8f8;
+	margin: 0 auto;
+	width: 100%;
+    padding: 40px 0;
+}
+
+/* Example Translation Bubbles on Main Page */
 
 .bubble-in,
 .bubble-out {
@@ -72,18 +104,17 @@ body {
 	color: #fff;
 	font-size: 18px;
 	max-width: 28ch;
+	width: 50%;
 	text-align: left;
 }
 
 .bubble-in {
-	margin: 0;
-	max-width: 28ch;
 	/* triangle dimension */
 	--b: 1em;
 	/* control the base */
 	--h: .7em;
 	/* control the height */
-	--c: #066984;
+	--c: #238f84;
 	padding: 1em;
 	border-radius: 1.2em;
 	border-bottom-left-radius: 0;
@@ -93,11 +124,10 @@ body {
 			0 calc(100% - var(--b)));
 	background: var(--c);
 	border-image: conic-gradient(var(--c) 0 0) 0 0 999 999/ 0 0 calc(var(--h) + var(--b)) calc(var(--h) + var(--b))/0 0 var(--h) var(--h);
+	margin-bottom: 5px;
 }
 
 .bubble-out {
-	margin: 0;
-	max-width: 28ch;
 	/* triangle dimension */
 	--b: 1em;
 	/* control the base */
@@ -132,8 +162,18 @@ body {
 }
 
 .nav-logo {
-	font-size: 18px;
-	font-family: 'Lexend', sans-serif;
+	font-size: 20px;
+	text-decoration: none;
+}
+
+.nav-logo-link {
+	text-decoration: none;
+	color: inherit;
+}
+
+.nav-logo-link:hover {
+	text-decoration: none;
+	color: inherit;
 }
 
 .nav-links {
@@ -156,19 +196,19 @@ body {
 
 /* Header Buttons */
 .translate-btn {
-	border-color: #027576;
+	border-color: #26988d;
 	color: #027576;
 }
 
 .translate-btn:hover {
-	background: #027576;
+	background: #279a8e;
 	color: white;
 }
 
 .translate-btn.current {
-	background-color: #027576;
+	background-color: #279a8e;
 	color: white;
-	border-color: #027576;
+	border-color: #26988d;
 }
 
 .favorites-btn {
@@ -287,6 +327,7 @@ body {
 .output-area {
 	width: 100%;
 	height: 200px;
+	text-align: center;
 	font-size: 16px;
 	line-height: 1.6;
 	color: #2d3748;
@@ -350,7 +391,7 @@ body {
 	font-family: 'Lexend', sans-serif;
 }
 
-/* Save & Copy Buttons */
+/* Favorite & Copy Buttons */
 .copy-btn,
 .save-btn {
 	font-family: 'Lexend', sans-serif;
@@ -371,7 +412,7 @@ body {
 
 .copy-btn:hover,
 .save-btn:hover {
-	background-color: #027576;
+	background-color: #ffb22e;
 	color: white;
 	transform: translateY(-2px);
 }
@@ -380,13 +421,13 @@ body {
 .copy-btn {
 	position: absolute;
 	bottom: 16px;
-	left: 110px;
+	left: 125px;
 }
 
 .save-btn {
 	position: absolute;
 	bottom: 16px;
-	left: 25px;
+	left: 15px;
 }
 
 /* Icon Size */
@@ -397,22 +438,22 @@ body {
 
 /* Translate Button */
 .btn-translate {
-	background-color: #f7a312;
+	background-color: #26988c;
 	border: none;
 	color: white;
-	padding: 12px 24px;
+	padding: 12px 50px;
 	border-radius: 40px;
 	font-weight: 400;
 	font-size: 18px;
 	transition: background-color 0.2s;
 	font-family: 'Lexend', sans-serif;
 	cursor: pointer;
-	box-shadow: 0 2px 6px rgba(247, 163, 18, 0.5);
+	box-shadow: #26988c;
 	transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .btn-translate:hover {
-	background-color: #027576;
+	background-color: #27aea1;
 	box-shadow: 0 2px 6px rgba(2, 117, 118, 0.5);
 	transform: translateY(-2px);
 
@@ -434,11 +475,11 @@ body {
 .history-save-btn {
 	display: inline-flex;
 	font-family: 'Lexend', sans-serif;
-	color: #027576;
+	color: #26988c;
 	padding: 5px 10px;
 	font-size: 12px;
 	gap: 6px;
-	border: 2px solid #027576;
+	border: 2px solid #26988c;
 	border-radius: 20px;
 	background-color: transparent;
 	cursor: pointer;
@@ -447,7 +488,7 @@ body {
 
 .history-save-btn:hover,
 .history-save-btn:active {
-	background-color: #027576;
+	background-color: #26988c;
 	color: white;
 }
 
@@ -527,13 +568,53 @@ body {
 	margin-bottom: 40px;
 }
 
-/* For Both History and Favorites Page */
+/* History page bubbles */
+.history-bubble-in {
+	margin: 0;
+	max-width: 25ch;
+	font-size: 12px;
+	/* triangle dimension */
+	--b: 1em;
+	--h: .7em;
+	--c: #238f84;
+	padding: 1em;
+	border-radius: 1.2em;
+	border-bottom-left-radius: 0;
+	clip-path: polygon(0 0, 100% 0, 100% 100%,
+			var(--b) 100%,
+			calc(-1*var(--h)) calc(100% + var(--h)),
+			0 calc(100% - var(--b)));
+	background: var(--c);
+	border-image: conic-gradient(var(--c) 0 0) 0 0 999 999/ 0 0 calc(var(--h) + var(--b)) calc(var(--h) + var(--b))/0 0 var(--h) var(--h);
+	color: #fff;
+}
+
+.history-bubble-out {
+	margin: 0;
+	max-width: 25ch;
+	font-size: 12px;
+	/* triangle dimension */
+	--b: 1em;
+	--h: .7em;
+	--c: #f7a409;
+	padding: 1em;
+	border-radius: 1.2em;
+	border-bottom-right-radius: 0;
+	clip-path: polygon(100% 0, 0 0, 0 100%,
+			calc(100% - var(--b)) 100%,
+			calc(100% + var(--h)) calc(100% + var(--h)),
+			100% calc(100% - var(--b)));
+	background: var(--c);
+	border-image: conic-gradient(var(--c) 0 0) 0 999 999 0/ 0 calc(var(--h) + var(--b)) calc(var(--h) + var(--b)) 0/0 var(--h) var(--h) 0;
+	color: #fff;
+}
+
+/* History & Favorite Container (for each translation) */
 .history-item {
 	border: 1px solid #ccc;
 	border-radius: 80px;
 	padding: 10px;
 	margin-bottom: 12px;
-	background-color: #fff;
 }
 
 .history-content p {
@@ -547,10 +628,13 @@ body {
 /* Footer */
 footer {
     font-family: 'Lexend', sans-serif;
-	text-align: center;
-	color: #939393;
-	font-size: 14px;
-	width: 100%;
+    text-align: center;
+    color: #ffffff;
+    font-size: 14px;
+    width: 100%;
+    background-color: #1f847a;
+    padding: 20px 0;
+    margin: 0;
 }
 
 /* Override Bootstrap Default Font */
