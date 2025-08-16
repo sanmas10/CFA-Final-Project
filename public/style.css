@@ -21,6 +21,13 @@ body {
 	padding: 0px 20px;
 }
 
+.container-corp {
+	text-align: center;
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 0px 20px 60px 20px;
+	min-height: calc(100vh - 100px);
+}
 /* Main Page */
 
 /* Container Row for Logo + Text/Button */
@@ -85,8 +92,7 @@ body {
 	max-width: 900px;
 	/* justify-items: stretch; */
 	justify-content: space-between;
-	align-items: flex-start;
-	gap: 10px;
+	align-items: center;
 }
 
 .bubbles-background {
@@ -94,6 +100,7 @@ body {
 	margin: 0 auto;
 	width: 100%;
     padding: 40px 0;
+	padding-top: 0;
 }
 
 /* Example Translation Bubbles on Main Page */
@@ -103,8 +110,8 @@ body {
 	margin: 20px;
 	color: #fff;
 	font-size: 18px;
-	max-width: 28ch;
-	width: 50%;
+	/* max-width: 28ch; */
+	width: 45%;
 	text-align: left;
 }
 
@@ -356,18 +363,6 @@ body {
 	align-items: center;
 }
 
-.action-bar {
-	background-color: #f7fafc;
-	border-top: 1px solid #e2e8f0;
-	padding: 20px 24px;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	flex-direction: column;
-	gap: 8px;
-}
-
-
 /* Feedback Message */
 .feedback-message {
 	font-family: 'Lexend', sans-serif;
@@ -421,13 +416,13 @@ body {
 .copy-btn {
 	position: absolute;
 	bottom: 16px;
-	left: 125px;
+	right: 125px;
 }
 
 .save-btn {
 	position: absolute;
 	bottom: 16px;
-	left: 15px;
+	right: 15px;
 }
 
 /* Icon Size */
@@ -568,15 +563,25 @@ body {
 	margin-bottom: 40px;
 }
 
-/* History page bubbles */
-.history-bubble-in {
-	margin: 0;
-	max-width: 25ch;
-	font-size: 12px;
+.column-headers {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto -25px auto;
+    padding: 0 170px;
+	padding-top: 20px;
+	font-weight: bold;
+}
+
+/* Shard Bubble Style for both Favorites and History Page */
+.phrase-bubble-in {
 	/* triangle dimension */
 	--b: 1em;
+	/* control the base */
 	--h: .7em;
-	--c: #238f84;
+	/* control the height */
+	--c: #29ab9e;
 	padding: 1em;
 	border-radius: 1.2em;
 	border-bottom-left-radius: 0;
@@ -586,17 +591,19 @@ body {
 			0 calc(100% - var(--b)));
 	background: var(--c);
 	border-image: conic-gradient(var(--c) 0 0) 0 0 999 999/ 0 0 calc(var(--h) + var(--b)) calc(var(--h) + var(--b))/0 0 var(--h) var(--h);
-	color: #fff;
+	margin-bottom: 5px;
+	text-align: left;
 }
 
-.history-bubble-out {
-	margin: 0;
-	max-width: 25ch;
-	font-size: 12px;
+.phrase-bubble-out {
 	/* triangle dimension */
 	--b: 1em;
+	/* control the base */
 	--h: .7em;
+	/* control the height */
+
 	--c: #f7a409;
+
 	padding: 1em;
 	border-radius: 1.2em;
 	border-bottom-right-radius: 0;
@@ -606,7 +613,7 @@ body {
 			100% calc(100% - var(--b)));
 	background: var(--c);
 	border-image: conic-gradient(var(--c) 0 0) 0 999 999 0/ 0 calc(var(--h) + var(--b)) calc(var(--h) + var(--b)) 0/0 var(--h) var(--h) 0;
-	color: #fff;
+	text-align: left;
 }
 
 /* History & Favorite Container (for each translation) */
@@ -622,7 +629,7 @@ body {
 }
 
 .history-actions {
-	margin-top: 10px;
+	margin-top: 10px; /* Gap Between Each Entry */
 }
 
 /* Footer */
@@ -634,7 +641,7 @@ footer {
     width: 100%;
     background-color: #1f847a;
     padding: 20px 0;
-    margin: 0;
+    margin-top: 0;
 }
 
 /* Override Bootstrap Default Font */

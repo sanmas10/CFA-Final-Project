@@ -71,14 +71,14 @@ async function loadHistory() {
 			return;
 		}
 
-		// Render each history item in reverse order to see the most recent translations + delete button as bubble pairs
+		// Display history item in reverse order to see the most recent translations + delete button as bubble pairs
 		history.reverse().forEach(item => {
 			const div = document.createElement('div');
-			div.className = 'history-bubble-row';
+			div.className = 'phrase-bubble-row';
 			div.innerHTML = `
                 <div class="bubble-pair">
-                    <div class="history-bubble-in">${item.original}</div>
-                    <div class="history-bubble-out">${item.jargon}</div>
+                    <div class="phrase-bubble-in"><strong>Original: </strong>${item.original}</div>
+                    <div class="phrase-bubble-out"><strong>Jargon: </strong>${item.jargon}</div>
                 </div>
                 <div class="history-actions">
                     <button class="history-save-btn" data-original="${item.original}" data-jargon="${item.jargon}" title="Save">
@@ -153,7 +153,6 @@ function savePhrase(originalText, jargonText) {
 		id: Date.now(),
 		original: originalText,
 		text: jargonText,
-		timestamp: new Date().toLocaleString()
 	};
 
 	// Add new favorite to the beginning of the list
@@ -176,18 +175,18 @@ function displaySavedPhrases() {
 		return;
 	}
 
-	// Delete
+	// Display favorites with bubble styling
 	favorites.forEach(item => {
 		const div = document.createElement('div');
-		div.className = 'history-item';
+		div.className = 'phrase-bubble-row';
 		div.innerHTML = `
-            <div class="history-content">
-                <p><strong>Original:</strong> ${item.original}</p>
-                <p><strong>Jargon:</strong> ${item.text}</p>
+            <div class="bubble-pair">
+                <div class="phrase-bubble-in"><strong>Original: </strong>${item.original}</div>
+                <div class="phrase-bubble-out"><strong>Jargon: </strong>${item.text}</div>
             </div>
             <div class="history-actions">
                 <button class="favorite-delete-btn" data-id="${item.id}" title="Delete">
-                    <i class="bi bi-trash"></i> Delete
+                    <i class="bi bi-trash"></i><span>Delete</span>
                 </button>
             </div>
         `;
